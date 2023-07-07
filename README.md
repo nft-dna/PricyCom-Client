@@ -1,8 +1,8 @@
-# Client for Artion Marketplace - Powered by Fantom
+# Client for Pricy Marketplace
 
-A client side implementation of the Artion Marketplace for NFT trading on Fantom Opera network.
+A client side implementation of the Pricy Marketplace for NFT trading
 
-Artion allows users: 
+Pricy allows users: 
 - to explore existing NFTs on Fantom Opera network.
 - to create a new collection of a new NFT
 - to register a collection of already deployed NFT.

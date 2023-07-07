@@ -276,7 +276,7 @@ const CollectionCreate = ({ isRegister }) => {
 
           try {
             const signer = await getSigner();
-            const msg = `Approve Signature on Artion.io with nonce ${nonce}`;
+            const msg = `Approve Signature on pricy.com with nonce ${nonce}`;
 
             signature = await signer.signMessage(msg);
             signatureAddress = ethers.utils.verifyMessage(msg, signature);
@@ -393,7 +393,7 @@ const CollectionCreate = ({ isRegister }) => {
                 try {
                   const signer = await getSigner();
                   signature = await signer.signMessage(
-                    `Approve Signature on Artion.io with nonce ${nonce}`
+                    `Approve Signature on pricy.com with nonce ${nonce}`
                   );
                 } catch (err) {
                   toast(
@@ -499,10 +499,7 @@ const CollectionCreate = ({ isRegister }) => {
         </div>
         <br />
         <div style={{ fontSize: '13px' }}>
-          Please submit using the owner address of the collection. If you cannot
-          use the owner address, please email us on contact@fantom.foundation
-          with the information below (and proof of collection ownership, such as
-          from the collection's official email address).
+          Please submit using the owner address of the collection.
         </div>
 
         {!isRegister && (
@@ -647,7 +644,7 @@ const CollectionCreate = ({ isRegister }) => {
             <div className={styles.inputTitle}>
               Royalty *&nbsp;
               <BootstrapTooltip
-                title="Each NFT under this collection exchanged through Artion will have a percentage of sale given to nominated wallet address."
+                title="Each NFT under this collection exchanged through Pricy will have a percentage of sale given to nominated wallet address."
                 placement="top"
               >
                 <HelpOutlineIcon />
@@ -674,7 +671,7 @@ const CollectionCreate = ({ isRegister }) => {
             <div className={styles.inputTitle}>
               Fee Recipient *&nbsp;
               <BootstrapTooltip
-                title="The nominated Fantom Opera Network wallet address to receive royalties from each sale in this collection."
+                title="The nominated Ethereum Network wallet address to receive royalties from each sale in this collection."
                 placement="top"
               >
                 <HelpOutlineIcon />
@@ -727,7 +724,7 @@ const CollectionCreate = ({ isRegister }) => {
         <div className={styles.inputGroup}>
           <div className={styles.inputTitle}>Category</div>
           <div className={styles.inputSubTitle}>
-            Adding a category will help make your item discoverable on Fantom.
+            Adding a category will help make your item discoverable on Pricy.
           </div>
           <div className={styles.inputSubTitle}>
             For more information, read{' '}

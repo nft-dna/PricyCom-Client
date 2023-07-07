@@ -4,7 +4,7 @@ import { WalletLinkConnector } from '@web3-react/walletlink-connector';
 
 import { NetworkConnector } from './NetworkConnector';
 
-import ARTION_LOGO_URL from '../assets/svgs/logo_blue.svg';
+import PRICY_LOGO_URL from '../assets/svgs/logo_blue.svg';
 
 // eslint-disable-next-line no-undef
 const isMainnet = process.env.REACT_APP_ENV === 'MAINNET';

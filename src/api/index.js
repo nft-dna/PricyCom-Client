@@ -9,17 +9,17 @@ export const useApi = () => {
     : 'https://testnet.ftmscan.com';
 
   const apiUrl = isMainnet
-    ? 'https://api.artion.io'
-    : 'https://api.testnet.artion.io';
+    ? 'https://api.pricy.com'
+    : 'https://api.testnet.pricy.com';
 
   // eslint-disable-next-line no-undef
   // const apiUrl = process.env.REACT_APP_API_URI;
   const storageUrl = isMainnet
-    ? 'https://storage.artion.io'
-    : 'https://storage.testnet.artion.io';
+    ? 'https://storage.pricy.com'
+    : 'https://storage.testnet.pricy.com';
 
   // const tokenURL = 'https://fetch-tokens.vercel.app/api';
-  // const tokenURL = 'https://api.artion.io/nftitems/fetchTokens';
+  // const tokenURL = 'https://api.pricy.com/nftitems/fetchTokens';
 
   const getNonce = async (address, authToken) => {
     const res = await axios({
