@@ -34,6 +34,6 @@ export const injected = new InjectedConnector({
 
 export const walletlink = new WalletLinkConnector({
   url: 'https://rpc.ftm.tools',
-  appName: 'Artion',
-  appLogoUrl: ARTION_LOGO_URL,
+  appName: 'Pricy',
+  appLogoUrl: PRICY_LOGO_URL,
 });

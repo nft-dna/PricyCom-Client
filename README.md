@@ -12,17 +12,19 @@ See [Guide](https://docs.fantom.foundation/tutorials/collection-and-bundle-guide
 
 ## Project Setup
 ```
-npm install / yarn
+yarn install
 ```
 
 ## Compile
 ```
-npm run start
+yarn run start
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+yarn run build
+yarn add --dev serve
+npx serve -s -l 443 build
 ```
 
 #### .env file sample
