@@ -19,9 +19,11 @@ export default () => {
       } else {
         const provider = new ethers.providers.JsonRpcProvider(
           isMainnet
-            ? 'https://eth.meowrpc.com/'
-            : 'https://ethereum-goerli.publicnode.com/',
-          isMainnet ? 1 : 5
+            ? process.env.REACT_APP_ENV_MAINNET_RPC
+            : process.env.REACT_APP_ENV_TESTNET_RPC,
+          isMainnet
+            ? process.env.REACT_APP_ENV_MAINNET_CHAINID
+            : process.env.REACT_APP_ENV_TESTNET_CHAINID
         );
 
         return new ethers.Contract(address, abi, provider);

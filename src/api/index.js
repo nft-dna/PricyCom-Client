@@ -5,18 +5,18 @@ const isMainnet = process.env.REACT_APP_ENV === 'MAINNET';
 
 export const useApi = () => {
   const explorerUrl = isMainnet
-    ? 'https://ftmscan.com'
-    : 'https://testnet.ftmscan.com';
+    ? process.env.REACT_APP_ENV_MAINNET_EXPLORER_URL //'https://ftmscan.com'
+    : process.env.REACT_APP_ENV_TESTNET_EXPLORER_URL; //'https://testnet.ftmscan.com';
 
   const apiUrl = isMainnet
-    ? 'https://api.pricy.com'
-    : 'https://api.testnet.pricy.com';
+    ? process.env.REACT_APP_ENV_MAINNET_API_URL //'https://api.pricy.com'
+    : process.env.REACT_APP_ENV_TESTNET_API_URL; //'https://api.testnet.pricy.com';
 
   // eslint-disable-next-line no-undef
   // const apiUrl = process.env.REACT_APP_API_URI;
   const storageUrl = isMainnet
-    ? 'https://storage.pricy.com'
-    : 'https://storage.testnet.pricy.com';
+    ? process.env.REACT_APP_ENV_MAINNET_STORAGE_URL //'https://storage.pricy.com'
+    : process.env.REACT_APP_ENV_TESTNET_STORAGE_URL; //'https://storage.testnet.pricy.com';
 
   // const tokenURL = 'https://fetch-tokens.vercel.app/api';
   // const tokenURL = 'https://api.pricy.com/nftitems/fetchTokens';

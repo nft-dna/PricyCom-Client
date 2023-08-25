@@ -8,7 +8,7 @@ import axios from 'axios';
 import { BigNumber, ethers } from 'ethers';
 import { useDropzone } from 'react-dropzone';
 import Skeleton from 'react-loading-skeleton';
-import { ChainId } from '@sushiswap/sdk';
+//import { ChainId } from '@sushiswap/sdk';
 import Select from 'react-dropdown-select';
 
 import CloseIcon from '@material-ui/icons/Close';
@@ -219,8 +219,11 @@ const PaintBoard = () => {
       showToast('info', 'Connect your wallet first');
       return;
     }
-    if (chainId !== ChainId.FANTOM && chainId !== ChainId.FANTOM_TESTNET) {
-      showToast('info', 'You are not connected to Fantom Opera Network');
+    if (
+      chainId !== process.env.REACT_APP_ENV_MAINNET_CHAINID &&
+      chainId !== process.env.REACT_APP_ENV_TESTNET_CHAINID
+    ) {
+      showToast('info', 'You are not connected to Network');
       return;
     }
     const balance = await WalletUtils.checkBalance(account);

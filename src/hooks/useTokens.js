@@ -63,10 +63,48 @@ const Tokens = {
       icon: iconWFTM,
     },
   ],
+  [ChainId.ETHEREUM]: [
+    {
+      address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+      name: 'Wrapped ETH',
+      symbol: 'WETH',
+      decimals: 18,
+      icon: iconWFTM,
+    },
+  ],
+  [ChainId.GÖRLI]: [
+    {
+      address: '0x0Bb7509324cE409F7bbC4b701f932eAca9736AB7',
+      name: 'Wrapped ETH',
+      symbol: 'WETH',
+      decimals: 18,
+      icon: iconWFTM,
+    },
+  ],
+  [ChainId.MATIC]: [
+    {
+      address: '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619',
+      name: 'Wrapped ETH',
+      symbol: 'WETH',
+      decimals: 18,
+      icon: iconWFTM,
+    },
+  ],
+  [ChainId.MATIC_TESTNET]: [
+    {
+      address: '0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa',
+      name: 'Wrapped ETH',
+      symbol: 'WETH',
+      decimals: 18,
+      icon: iconWFTM,
+    },
+  ],
 };
 
 export default function useTokens() {
-  const chain = isMainnet ? ChainId.MAINNET : ChainId.GÖRLI;
+  const chain = isMainnet
+    ? process.env.REACT_APP_ENV_MAINNET_CHAINID
+    : process.env.REACT_APP_ENV_TESTNET_CHAINID; // ChainId.ETHEREUM : ChainId.GÖRLI;
 
   const tokens = Tokens[chain];
 

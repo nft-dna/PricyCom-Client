@@ -25,7 +25,7 @@ import {
   CartesianGrid,
   Line,
 } from 'recharts';
-import { ChainId } from '@sushiswap/sdk';
+//import { ChainId } from '@sushiswap/sdk';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { useWeb3React } from '@web3-react/core';
@@ -107,7 +107,10 @@ const filters = ['Trade History', 'Transfer History'];
 
 // eslint-disable-next-line no-undef
 const ENV = process.env.REACT_APP_ENV;
-const CHAIN = ENV === 'MAINNET' ? ChainId.MAINNET : ChainId.GÖRLI;
+const CHAIN =
+  (ENV === 'MAINNET')
+    ? process.env.REACT_APP_ENV_MAINNET_CHAINID
+    : process.env.REACT_APP_ENV_TESTNET_CHAINID; // ENV === 'MAINNET' ? ChainId.ETHEREUM : ChainId.GÖRLI;
 
 const NFTItem = () => {
   const dispatch = useDispatch();
@@ -292,9 +295,12 @@ const NFTItem = () => {
   const isLoggedIn = () => {
     return (
       account &&
+      //(ENV === 'MAINNET'
+      //  ? chainId === ChainId.ETHEREUM
+      //  : chainId === ChainId.GÖRLI)
       (ENV === 'MAINNET'
-        ? chainId === ChainId.MAINNET
-        : chainId === ChainId.GÖRLI)
+        ? process.env.REACT_APP_ENV_MAINNET_CHAINID
+        : process.env.REACT_APP_ENV_TESTNET_CHAINID)
     );
   };
 

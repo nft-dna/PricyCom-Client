@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/sdk';
+//import { ChainId } from '@sushiswap/sdk';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { WalletLinkConnector } from '@web3-react/walletlink-connector';
 
@@ -11,24 +11,31 @@ const isMainnet = process.env.REACT_APP_ENV === 'MAINNET';
 
 const RPC = isMainnet
   ? {
-      [ChainId.FANTOM]: 'https://rpc.ftm.tools',
+      [process.env.REACT_APP_ENV_MAINNET_CHAINID]:
+        process.env.REACT_APP_ENV_MAINNET_RPC,
+      //[ChainId.ETHEREUM]: process.env.REACT_APP_ENV_MAINNET_RPC,
     }
   : {
-      [ChainId.FANTOM_TESTNET]: 'https://rpc.testnet.fantom.network',
+      [process.env.REACT_APP_ENV_TESTNET_CHAINID]:
+        process.env.REACT_APP_ENV_TESTNET_RPC,
+      //[ChainId.GÖRLI]: process.env.REACT_APP_ENV_TESTNET_RPC,
     };
 
 export const network = new NetworkConnector({
-  defaultChainId: ChainId.FANTOM,
+  defaultChainId: isMainnet
+    ? process.env.REACT_APP_ENV_MAINNET_CHAINID
+    : process.env.REACT_APP_ENV_TESTNET_CHAINID,
+  //ChainId.ETHEREUM,
   urls: RPC,
 });
 
 export const injected = new InjectedConnector({
   supportedChainIds: isMainnet
     ? [
-        250, // fantom
+        process.env.REACT_APP_ENV_MAINNET_CHAINID, // ethereum is 1
       ]
     : [
-        4002, // fantom testnet
+        process.env.REACT_APP_ENV_TESTNET_CHAINID, // goerli testnet is 5
       ],
 });
 

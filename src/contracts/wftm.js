@@ -6,13 +6,18 @@ import useContract from 'hooks/useContract';
 import { ethers } from 'ethers';
 
 const WFTM_ADDRESS = {
-  [ChainId.FANTOM]: '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
-  [ChainId.FANTOM_TESTNET]: '0xf1277d1Ed8AD466beddF92ef448A132661956621',
+  [ChainId.ETHEREUM]: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+  [ChainId.GÖRLI]: '0x0Bb7509324cE409F7bbC4b701f932eAca9736AB7',
+  [ChainId.MATIC]: '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619',
+  [ChainId.MATIC_TESTNET]: '0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa',
 };
 
 // eslint-disable-next-line no-undef
 const isMainnet = process.env.REACT_APP_ENV === 'MAINNET';
-const CHAIN = isMainnet ? ChainId.MAINNET : ChainId.GÖRLI;
+const CHAIN = isMainnet
+  ? process.env.REACT_APP_ENV_MAINNET_CHAINID
+  : process.env.REACT_APP_ENV_TESTNET_CHAINID;
+// ChainId.ETHEREUM : ChainId.GÖRLI;
 export const useWFTMContract = () => {
   const { getContract } = useContract();
 

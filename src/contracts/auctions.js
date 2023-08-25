@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/sdk';
+//import { ChainId } from '@sushiswap/sdk';
 
 import { calculateGasMargin, getHigherGWEI } from 'utils';
 import { Contracts } from 'constants/networks';
@@ -8,7 +8,10 @@ import { AUCTION_CONTRACT_ABI } from './abi';
 
 // eslint-disable-next-line no-undef
 const isMainnet = process.env.REACT_APP_ENV === 'MAINNET';
-const CHAIN = isMainnet ? ChainId.MAINNET : ChainId.GÖRLI;
+const CHAIN = isMainnet
+  ? process.env.REACT_APP_ENV_MAINNET_CHAINID
+  : process.env.REACT_APP_ENV_TESTNET_CHAINID;
+// ChainId.ETHEREUM : ChainId.GÖRLI;
 
 export const useAuctionContract = () => {
   const { getContract } = useContract();

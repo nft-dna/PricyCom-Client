@@ -107,8 +107,7 @@ const LandingPage = () => {
               style={{ color: '#FFF' }}
             >{`Trade without platform fees on Pricy`}</div>
             <div className={styles.subtitle}>
-              Pricy is an NFT marketplace. Create and trade
-              NFTs instantly with low network costs.
+              Pricy is an NFT marketplace. Create and trade NFTs instantly.
             </div>
             <div className={styles.subtitle}>
               <strong>

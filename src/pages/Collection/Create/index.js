@@ -56,10 +56,10 @@ const CollectionCreate = ({ isRegister }) => {
   const { account } = useWeb3React();
   const { apiUrl, getNonce } = useApi();
   const {
-    getFactoryContract,
-    getPrivateFactoryContract,
-    getArtFactoryContract,
-    getPrivateArtFactoryContract,
+    getERC721FactoryContract,
+    //getPrivateFactoryContract,
+    getERC1155FactoryContract,
+    //getPrivateArtFactoryContract,
     createNFTContract,
   } = useFactoryContract();
 
@@ -356,14 +356,12 @@ const CollectionCreate = ({ isRegister }) => {
     try {
       const tx = await createNFTContract(
         isSingle
-          ? isPrivate
-            ? await getPrivateFactoryContract()
-            : await getFactoryContract()
-          : isPrivate
-          ? await getPrivateArtFactoryContract()
-          : await getArtFactoryContract(),
+          ? getERC721FactoryContract()
+          : await getERC1155FactoryContract(),
         name,
         symbol,
+        isPrivate,
+        ethers.utils.parseEther('0'),
         ethers.utils.parseEther('100'),
         account
       );
