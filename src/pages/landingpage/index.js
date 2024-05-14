@@ -33,7 +33,7 @@ const cards = [
     icon: card2,
     title: 'Super Fast',
     description:
-      'Since Pricy runs on Ethereum Network, transactions are usually confirmed within few seconds.',
+      'Since Volcano runs on Ethereum Network, transactions are usually confirmed within few seconds.',
     path: '/',
   },
   {
@@ -47,7 +47,7 @@ const cards = [
     icon: card4,
     title: 'Zero Platform Fees',
     description:
-      'Trade NFTs via auction or direct offer without any fees taken by Pricy.',
+      'Trade NFTs via auction or direct offer without any fees taken by Volcano.',
     path: '/explore',
   },
 ];
@@ -105,9 +105,9 @@ const LandingPage = () => {
             <div
               className={styles.title}
               style={{ color: '#FFF' }}
-            >{`Trade without platform fees on Pricy`}</div>
+            >{`Trade without platform fees on Volcano`}</div>
             <div className={styles.subtitle}>
-              Pricy is an NFT marketplace. Create and trade NFTs instantly.
+              Volcano is an NFT marketplace. Create and trade NFTs instantly.
             </div>
             <div className={styles.subtitle}>
               <strong>
@@ -152,7 +152,7 @@ const LandingPage = () => {
       </div>
       <div className={styles.about}>
         <div className={styles.aboutInner}>
-          <div className={styles.aboutTitle}>Why Pricy</div>
+          <div className={styles.aboutTitle}>Why Volcano</div>
           <div className={styles.aboutCards}>
             {cards.map((card, key) =>
               renderAboutCard(

@@ -276,7 +276,7 @@ const CollectionCreate = ({ isRegister }) => {
 
           try {
             const signer = await getSigner();
-            const msg = `Approve Signature on pricy.com with nonce ${nonce}`;
+            const msg = `Approve Signature on volcano.com with nonce ${nonce}`;
 
             signature = await signer.signMessage(msg);
             signatureAddress = ethers.utils.verifyMessage(msg, signature);
@@ -391,7 +391,7 @@ const CollectionCreate = ({ isRegister }) => {
                 try {
                   const signer = await getSigner();
                   signature = await signer.signMessage(
-                    `Approve Signature on pricy.com with nonce ${nonce}`
+                    `Approve Signature on volcano.com with nonce ${nonce}`
                   );
                 } catch (err) {
                   toast(
@@ -642,7 +642,7 @@ const CollectionCreate = ({ isRegister }) => {
             <div className={styles.inputTitle}>
               Royalty *&nbsp;
               <BootstrapTooltip
-                title="Each NFT under this collection exchanged through Pricy will have a percentage of sale given to nominated wallet address."
+                title="Each NFT under this collection exchanged through Volcano will have a percentage of sale given to nominated wallet address."
                 placement="top"
               >
                 <HelpOutlineIcon />
@@ -722,7 +722,7 @@ const CollectionCreate = ({ isRegister }) => {
         <div className={styles.inputGroup}>
           <div className={styles.inputTitle}>Category</div>
           <div className={styles.inputSubTitle}>
-            Adding a category will help make your item discoverable on Pricy.
+            Adding a category will help make your item discoverable on Volcano.
           </div>
           <div className={styles.inputSubTitle}>
             For more information, read{' '}

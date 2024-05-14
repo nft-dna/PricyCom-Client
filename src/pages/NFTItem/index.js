@@ -91,7 +91,7 @@ import mediumIcon from 'assets/svgs/medium.svg';
 import filterIcon from 'assets/svgs/filter.svg';
 import checkIcon from 'assets/svgs/check.svg';
 import shareIcon from 'assets/svgs/share.svg';
-import iconPricy from 'assets/svgs/logo_small_blue.svg';
+import iconVolcano from 'assets/svgs/logo_small_blue.svg';
 import iconFacebook from 'assets/imgs/facebook.png';
 import iconTwitter from 'assets/svgs/twitter_blue.svg';
 
@@ -108,7 +108,7 @@ const filters = ['Trade History', 'Transfer History'];
 // eslint-disable-next-line no-undef
 const ENV = process.env.REACT_APP_ENV;
 const CHAIN =
-  (ENV === 'MAINNET')
+  ENV === 'MAINNET'
     ? process.env.REACT_APP_ENV_MAINNET_CHAINID
     : process.env.REACT_APP_ENV_TESTNET_CHAINID; // ENV === 'MAINNET' ? ChainId.ETHEREUM : ChainId.GÖRLI;
 
@@ -1683,7 +1683,7 @@ const NFTItem = () => {
       let addr;
       try {
         const signer = await getSigner();
-        const msg = `Approve Signature on Pricy.com with nonce ${nonce}`;
+        const msg = `Approve Signature on Volcano.com with nonce ${nonce}`;
         signature = await signer.signMessage(msg);
         addr = ethers.utils.verifyMessage(msg, signature);
       } catch {
@@ -2352,7 +2352,7 @@ const NFTItem = () => {
   const handleShareToTwitter = () => {
     handleClose();
     window.open(
-      `https://twitter.com/intent/tweet?text=Check%20out%20this%20item%20on%20Pricy&url=${window.location.href}`,
+      `https://twitter.com/intent/tweet?text=Check%20out%20this%20item%20on%20Volcano&url=${window.location.href}`,
       '_blank'
     );
   };
@@ -3733,7 +3733,7 @@ const NFTItem = () => {
       >
         <CopyToClipboard text={window.location.href} onCopy={handleCopyLink}>
           <MenuItem classes={{ root: styles.menuItem }}>
-            <img src={iconPricy} />
+            <img src={iconVolcano} />
             Copy Link
           </MenuItem>
         </CopyToClipboard>

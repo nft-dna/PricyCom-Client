@@ -83,7 +83,7 @@ const ConnectWalletModal = ({ visible, onClose }) => {
         <div>
           <div className={styles.text}>
             Please connect to the{' '}
-            {isMainnet ? 'Pricy Marketplace' : 'Pricy Testnet'}.
+            {isMainnet ? 'Volcano Marketplace' : 'Volcano Testnet'}.
           </div>
           <div className={styles.switchBtn} onClick={deactivate}>
             Disconnect

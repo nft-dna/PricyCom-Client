@@ -1,10 +1,9 @@
 {
-  "name": "pricy",
-  "homepage": "https://pricy.com",
+  "name": "volcano",
+  "homepage": "https://volcano.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "7.5.5",
     "@brainhubeu/react-carousel": "^2.0.4",
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
@@ -28,10 +27,6 @@
     "@web3-react/walletlink-connector": "^6.2.3",
     "axios": "^0.21.1",
     "axios-react": "^2.0.2",
-    "babel-jest": "^24.8.0",
-    "babel-loader": "8.0.6",
-    "babel-plugin-named-asset-import": "^0.3.3",
-    "babel-preset-react-app": "^9.0.1",
     "bignumber.js": "^9.1.0",
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
@@ -41,7 +36,7 @@
     "dotenv-expand": "4.2.0",
     "email-deep-validator": "^3.3.0",
     "erc721": "^5.2.0",
-    "eslint": "^6.7.2",
+    "eslint": "^7.11.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-config-react-app": "^5.0.0",
     "eslint-loader": "2.2.1",
@@ -114,14 +109,15 @@
     "sass": "^1.32.8",
     "sass-loader": "7.2.0",
     "semver": "6.3.0",
+    "standard": "^17.1.0",
     "style-loader": "1.0.0",
     "terser-webpack-plugin": "1.4.1",
     "three": "^0.135.0",
     "ts-pnp": "1.1.2",
     "ua-parser-js": "^0.7.20",
     "url-loader": "2.1.0",
-    "webpack": "4.39.1",
-    "webpack-dev-server": "3.2.1",
+    "webpack": "4.44.2",
+    "webpack-dev-server": "3.11.1",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "4.3.1"
   },
@@ -140,27 +136,41 @@
       "not dead",
       "not op_mini all"
     ],
-    "development": [
+    "__development__": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ],
+    "development": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ]
   },
   "babel": {
     "plugins": [
-      [
-        "@babel/plugin-proposal-decorators",
-        {
-          "legacy": true
-        }
-      ]
+      "@babel/plugin-transform-nullish-coalescing-operator",
+      "@babel/plugin-syntax-nullish-coalescing-operator",
+      "@babel/plugin-proposal-optional-chaining"
     ],
     "presets": [
       "react-app"
     ]
   },
   "devDependencies": {
-    "serve": "^14.2.0"
+    "@babel/cli": "^7.24.5",
+    "@babel/core": "^7.24.5",
+    "@babel/eslint-parser": "^7.24.5",
+    "@babel/helper-remap-async-to-generator": "^7.22.20",
+    "@babel/helper-replace-supers": "^7.24.1",
+    "@babel/plugin-proposal-decorators": "^7.24.1",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.6",
+    "@babel/plugin-syntax-nullish-coalescing-operator": "^7.8.3",
+    "@babel/plugin-transform-nullish-coalescing-operator": "^7.24.1",
+    "@babel/plugin-transform-private-property-in-object": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-react": "^7.24.1",
+    "serve": "^14.2.3"
   },
   "keywords": [],
   "description": ""

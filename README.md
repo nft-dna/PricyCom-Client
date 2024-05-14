@@ -1,8 +1,8 @@
-# Client for Pricy Marketplace
+# Client for Volcano Marketplace
 
-A client side implementation of the Pricy Marketplace for NFT trading
+A client side implementation of the Volcano Marketplace for NFT trading
 
-Pricy allows users: 
+Volcano allows users: 
 - to explore existing NFTs on Fantom Opera network.
 - to create a new collection of a new NFT
 - to register a collection of already deployed NFT.
@@ -25,6 +25,7 @@ yarn run start
 yarn run build
 yarn add --dev serve (if not done already)
 npx serve -s -l 443 build
+ (or using tmux - Ctrl+B, d)
 ```
 
 ### Stop a running instance

@@ -4,7 +4,7 @@ import { WalletLinkConnector } from '@web3-react/walletlink-connector';
 
 import { NetworkConnector } from './NetworkConnector';
 
-import PRICY_LOGO_URL from '../assets/svgs/logo_blue.svg';
+import VOLCANO_LOGO_URL from '../assets/svgs/logo_blue.svg';
 
 // eslint-disable-next-line no-undef
 const isMainnet = process.env.REACT_APP_ENV === 'MAINNET';
@@ -41,6 +41,6 @@ export const injected = new InjectedConnector({
 
 export const walletlink = new WalletLinkConnector({
   url: 'https://rpc.ftm.tools',
-  appName: 'Pricy',
-  appLogoUrl: PRICY_LOGO_URL,
+  appName: 'Volcano',
+  appLogoUrl: VOLCANO_LOGO_URL,
 });
