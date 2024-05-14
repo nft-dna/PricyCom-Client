@@ -36,7 +36,7 @@ kill -9 PID
 
 #### .env file sample
 ```
-SKIP_PREFLIGHT_CHECK=true
+#SKIP_PREFLIGHT_CHECK=true
 
 REACT_APP_ENV='TESTNET'
 #REACT_APP_ENV='MAINNET'
