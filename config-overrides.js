@@ -1,2 +1,14 @@
 const { override, addDecoratorsLegacy } = require('customize-cra');
-module.exports = override(addDecoratorsLegacy());
+const supportMjs = () => (webpackConfig) => {
+    webpackConfig.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: "javascript/auto",
+    });
+    return webpackConfig;
+};
+
+module.exports = override(
+    addDecoratorsLegacy(),
+    supportMjs()
+);
