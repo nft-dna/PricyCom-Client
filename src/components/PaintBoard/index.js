@@ -220,8 +220,8 @@ const PaintBoard = () => {
       return;
     }
     if (
-      chainId !== process.env.REACT_APP_ENV_MAINNET_CHAINID &&
-      chainId !== process.env.REACT_APP_ENV_TESTNET_CHAINID
+      chainId !== parseInt(process.env.REACT_APP_ENV_MAINNET_CHAINID, 10) &&
+      chainId !== parseInt(process.env.REACT_APP_ENV_TESTNET_CHAINID, 10)
     ) {
       showToast('info', 'You are not connected to Network');
       return;

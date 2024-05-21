@@ -20,27 +20,25 @@ const RPC = isMainnet
         process.env.REACT_APP_ENV_TESTNET_RPC,
       //[ChainId.GÖRLI]: process.env.REACT_APP_ENV_TESTNET_RPC,
     };
-
-export const network = new NetworkConnector({
-  defaultChainId: isMainnet
+const CHAINID = parseInt(
+  isMainnet
     ? process.env.REACT_APP_ENV_MAINNET_CHAINID
     : process.env.REACT_APP_ENV_TESTNET_CHAINID,
+  10
+);
+
+export const network = new NetworkConnector({
+  defaultChainId: CHAINID,
   //ChainId.ETHEREUM,
   urls: RPC,
 });
 
 export const injected = new InjectedConnector({
-  supportedChainIds: isMainnet
-    ? [
-        process.env.REACT_APP_ENV_MAINNET_CHAINID, // ethereum is 1
-      ]
-    : [
-        process.env.REACT_APP_ENV_TESTNET_CHAINID, // goerli testnet is 5
-      ],
+  supportedChainIds: [CHAINID],
 });
 
 export const walletlink = new WalletLinkConnector({
-  url: 'https://rpc.ftm.tools',
+  url: RPC,
   appName: 'Volcano',
   appLogoUrl: VOLCANO_LOGO_URL,
 });

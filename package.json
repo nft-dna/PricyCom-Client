@@ -127,6 +127,7 @@
   "scripts": {
     "start": "react-app-rewired --openssl-legacy-provider start",
     "build": "react-app-rewired --openssl-legacy-provider build",
+    "start443": "PORT=443 react-app-rewired --openssl-legacy-provider start",
     "build-serve": "yarn run build && yarn serve -s build",
     "local-serve": "yarn serve -s build"
   },

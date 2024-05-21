@@ -9,16 +9,22 @@ import { BUNDLE_SALES_CONTRACT_ABI } from './abi';
 
 // eslint-disable-next-line no-undef
 const isMainnet = process.env.REACT_APP_ENV === 'MAINNET';
-const CHAIN = isMainnet
-  ? process.env.REACT_APP_ENV_MAINNET_CHAINID
-  : process.env.REACT_APP_ENV_TESTNET_CHAINID;
+const CHAINID = parseInt(
+  isMainnet
+    ? process.env.REACT_APP_ENV_MAINNET_CHAINID
+    : process.env.REACT_APP_ENV_TESTNET_CHAINID,
+  10
+);
 // ChainId.ETHEREUM : ChainId.GÖRLI;
 
 export const useBundleSalesContract = () => {
   const { getContract } = useContract();
 
   const getBundleSalesContract = async () =>
-    await getContract(Contracts[CHAIN].bundleSales, BUNDLE_SALES_CONTRACT_ABI);
+    await getContract(
+      Contracts[CHAINID].bundleSales,
+      BUNDLE_SALES_CONTRACT_ABI
+    );
 
   const getBundleListing = async (owner, bundleID) => {
     const contract = await getBundleSalesContract();

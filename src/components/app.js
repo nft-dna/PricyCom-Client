@@ -9,7 +9,7 @@ import {
 import { Toaster } from 'react-hot-toast';
 import { ethers } from 'ethers';
 import { useWeb3React } from '@web3-react/core';
-import { ChainId } from '@sushiswap/sdk';
+// import { ChainId } from '@sushiswap/sdk';
 // import { Client } from '@bandprotocol/bandchain.js';
 
 import ProtectedRoute from './ProtectedRoute';
@@ -34,7 +34,7 @@ const App = () => {
 
   const getPrice = async () => {
     try {
-      if (chainId === ChainId.FANTOM) {
+      if (chainId === parseInt(process.env.REACT_APP_ENV_MAINNET_CHAINID, 10)) {
         // const endpoint = 'https://rpc.bandchain.org';
         // const client = new Client(endpoint);
         // const resp = await client.getReferenceData(['FTM/USD', 'BTC/USD']);
@@ -42,7 +42,7 @@ const App = () => {
         // dispatch(PriceActions.updatePrice(resp.rate));
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const oracle = new ethers.Contract(
-          '0xf4766552D15AE4d256Ad41B6cf2933482B0680dc',
+          process.env.REACT_APP_ENV_MAINNET_PRICE_ORACLE,
           [
             {
               inputs: [],
@@ -57,10 +57,12 @@ const App = () => {
         const _price = await oracle.latestAnswer();
         const price = parseFloat(_price.toString()) / 10 ** 8;
         dispatch(PriceActions.updatePrice(price));
-      } else if (chainId === ChainId.FANTOM_TESTNET) {
+      } else if (
+        chainId === parseInt(process.env.REACT_APP_ENV_TESTNET_CHAINID, 10)
+      ) {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const oracle = new ethers.Contract(
-          '0xe04676B9A9A2973BCb0D1478b5E1E9098BBB7f3D',
+          process.env.REACT_APP_ENV_TESTNET_PRICE_ORACLE,
           [
             {
               inputs: [],

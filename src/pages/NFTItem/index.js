@@ -106,11 +106,18 @@ const ONE_MONTH = ONE_DAY * 30;
 const filters = ['Trade History', 'Transfer History'];
 
 // eslint-disable-next-line no-undef
-const ENV = process.env.REACT_APP_ENV;
-const CHAIN =
-  ENV === 'MAINNET'
+//const ENV = process.env.REACT_APP_ENV;
+//const CHAIN =
+//  ENV === 'MAINNET'
+//    ? parseInt(process.env.REACT_APP_ENV_MAINNET_CHAINID,10)
+//    : parseInt(process.env.REACT_APP_ENV_TESTNET_CHAINID,10); // ENV === 'MAINNET' ? ChainId.ETHEREUM : ChainId.GÖRLI;
+const isMainnet = process.env.REACT_APP_ENV === 'MAINNET';
+const CHAINID = parseInt(
+  isMainnet
     ? process.env.REACT_APP_ENV_MAINNET_CHAINID
-    : process.env.REACT_APP_ENV_TESTNET_CHAINID; // ENV === 'MAINNET' ? ChainId.ETHEREUM : ChainId.GÖRLI;
+    : process.env.REACT_APP_ENV_TESTNET_CHAINID,
+  10
+);
 
 const NFTItem = () => {
   const dispatch = useDispatch();
@@ -298,9 +305,7 @@ const NFTItem = () => {
       //(ENV === 'MAINNET'
       //  ? chainId === ChainId.ETHEREUM
       //  : chainId === ChainId.GÖRLI)
-      (ENV === 'MAINNET'
-        ? process.env.REACT_APP_ENV_MAINNET_CHAINID
-        : process.env.REACT_APP_ENV_TESTNET_CHAINID)
+      chainId === CHAINID
     );
   };
 
@@ -1362,7 +1367,7 @@ const NFTItem = () => {
     try {
       const approved = await contract.isApprovedForAll(
         account,
-        Contracts[CHAIN].sales
+        Contracts[CHAINID].sales
       );
       setSalesContractApproved(approved);
     } catch (e) {

@@ -8,7 +8,12 @@ import iconDAI from 'assets/imgs/dai.png';
 
 // eslint-disable-next-line no-undef
 const isMainnet = process.env.REACT_APP_ENV === 'MAINNET';
-
+const CHAINID = parseInt(
+  isMainnet
+    ? process.env.REACT_APP_ENV_MAINNET_CHAINID
+    : process.env.REACT_APP_ENV_TESTNET_CHAINID,
+  10
+);
 const Tokens = {
   [ChainId.FANTOM]: [
     // {
@@ -102,9 +107,7 @@ const Tokens = {
 };
 
 export default function useTokens() {
-  const chain = isMainnet
-    ? process.env.REACT_APP_ENV_MAINNET_CHAINID
-    : process.env.REACT_APP_ENV_TESTNET_CHAINID; // ChainId.ETHEREUM : ChainId.GÖRLI;
+  const chain = CHAINID; // ChainId.ETHEREUM : ChainId.GÖRLI;
 
   const tokens = Tokens[chain];
 

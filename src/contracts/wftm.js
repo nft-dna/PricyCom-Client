@@ -17,9 +17,12 @@ const WFTM_ADDRESS = {
 
 // eslint-disable-next-line no-undef
 const isMainnet = process.env.REACT_APP_ENV === 'MAINNET';
-const CHAIN = isMainnet
-  ? process.env.REACT_APP_ENV_MAINNET_CHAINID
-  : process.env.REACT_APP_ENV_TESTNET_CHAINID;
+const CHAIN = parseInt(
+  isMainnet
+    ? process.env.REACT_APP_ENV_MAINNET_CHAINID
+    : process.env.REACT_APP_ENV_TESTNET_CHAINID,
+  10
+);
 // ChainId.ETHEREUM : ChainId.GÖRLI;
 export const useWFTMContract = () => {
   const { getContract } = useContract();
